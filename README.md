@@ -8,8 +8,9 @@ Acest sistem integrează multiple module și componente pentru a oferi funcțion
 ✔ RTC precis  
 ✔ Gestionare eficientă a energiei  
 
-![alt text](https://imgur.com/a/BMvBeEb)
+![schema_bloc](https://github.com/user-attachments/assets/e54cac88-8de1-48db-89e3-38493008c50d)
 ---
+
 
 ### 1. Microcontroler: ESP32-C6  
 **Specificații cheie:**  
