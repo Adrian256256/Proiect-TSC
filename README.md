@@ -2,8 +2,6 @@
 ## Project: OpenBook  
 **Author:** Teodor-Adrian Harea (333CA)  
 
-### Overview  
-A low-power embedded system integrating multiple modules for environmental data logging and visualization.  
 
 ---
 
