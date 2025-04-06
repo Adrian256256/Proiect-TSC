@@ -68,21 +68,50 @@
 
 ---
 
-## 4. Pinout Configuration  
+## 4. Detailed Pin Configuration  
 
-### 4.1 Critical Interfaces  
-| Function       | Pins Used               | Protocol |
-|----------------|-------------------------|----------|
-| Primary SPI    | GPIO8-11 (EPD/Flash)    | SPI      |
-| Secondary SPI  | GPIO12-15 (SD Card)     | SPI      |
-| I2C Bus        | GPIO2 (SDA), GPIO3 (SCL)| I2C      |
+### 4.1 E-Paper Display Control  
+| Pin Name      | Type    | Functionality                          | ESP32-C6 Connection |
+|--------------|---------|----------------------------------------|---------------------|
+| `EPD_RST`    | Output  | Hardware reset (active low)            | GPIO18              |
+| `EPD_DC`     | Output  | Data/Command selection (SPI mode)      | GPIO21              |
+| `EPD_BUSY`   | Input   | Busy status (high during refresh)      | GPIO19              |
+| `EPD_CS`     | Output  | SPI chip select (active low)           | GPIO5               |
+| `MOSI/SCK`   | SPI     | Main display data/clock lines          | SPI1_HOST           |
 
-### 4.2 Special Pins  
-- **System Control:**  
-  - `RESET` (Hardware reset)  
-  - `IO0` (Boot mode selector)  
-- **Debugging:**  
-  - `TX/RX` (UART console)  
+### 4.2 Storage Interfaces  
+#### NOR Flash (W25Q512JVEIQ)  
+| Pin         | Function                      | ESP32 Pin |
+|-------------|-------------------------------|-----------|
+| `FLASH_CS`  | QSPI chip select              | GPIO17    |
+| `IO0-IO3`   | Quad SPI data lines           | QSPI bus  |
+
+#### microSD Card Slot  
+| Pin       | Function                | ESP32 Pin |
+|-----------|-------------------------|-----------|
+| `SS_SD`   | SPI slave select        | GPIO4     |
+| `CD`      | Card detect (optional)  | GPIO22    |
+
+### 4.3 System Management  
+| Component    | Critical Pins               | Purpose                             |
+|--------------|-----------------------------|-------------------------------------|
+| **RTC**      | `SCL`/`SDA` (I2C)           | Timekeeping (DS3231SN)              |
+|              | `INT_RTC`                   | Wake-up alarm interrupt             |
+| **Power**    | `VBAT`                      | RTC backup battery (3V)             |
+|              | `CHG_STAT`                  | LiPo charger status LED             |
+
+### 4.4 User Interface  
+| Pin       | Type      | Functionality                  |
+|-----------|-----------|--------------------------------|
+| `PAGE_UP` | GPIO      | Tactile button (internal pullup)|
+| `PAGE_DN` | GPIO      | With debounce circuit          |
+| `PWR_HLD` | Output    | Maintains power when pressed   |
+
+### 4.5 Debug Interfaces  
+| Interface | Pins Used          | Baud Rate |
+|-----------|--------------------|-----------|
+| USB-C     | `DP`/`DM`          | 12 Mbps   |
+| UART0     | `TX0`/`RX0`        | 115200    |
 
 ---
 
