@@ -2,8 +2,9 @@
 ## Project: OpenBook  
 **Author:** Teodor-Adrian Harea (333CA)  
 
-
+![schema_bloc](https://github.com/user-attachments/assets/77c92a13-ef4c-4942-9d59-9a1516e06ebd)
 ---
+
 
 ## 1. Core Components  
 
@@ -98,30 +99,55 @@
 3. Acquire measurements (BME688)  
 4. Store to flash/SD  
 5. Update EPD if threshold exceeded  
-6. Return to deep sleep  
+6. Return to deep sleep
 
-<button onclick="navigator.clipboard.writeText(document.querySelector('pre').textContent)">Copy Documentation</button>
+### **Bill of Materials (BOM)**
 
-<style>
-pre {
-  background: #f1f3f4;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #4285F4;
-  font-family: 'Roboto Mono', monospace;
-}
-button {
-  background: #4285F4;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  margin-top: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-button:hover {
-  background: #3367D6;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-</style>
+#### **Microcontrollers & Modules**
+- **ESP32-C6-WROOM-1-N8** (WiFi/Bluetooth Module)
+  - Mouser: [https://ro.mouser.com/ProductDetail/Espressif-Systems/ESP32-C6-WROOM-1-N8?qs=8Wlm6%252BaMh8ST02Gmwp74cw%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/891/Espressif_ESP32_C6_WROOM_1__Datasheet_V0_1_PRELIMI-3239987.pdf]()
+
+- **W25Q512JVEIQ** (64MB External NOR Flash)
+  - Mouser: [https://ro.mouser.com/ProductDetail/Winbond/W25Q512JVEIQ?qs=l7cgNqFNU1jw6svr3at6tA%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/949/Winbond_W25Q512JV_Datasheet-3240039.pdf]()
+
+#### **Sensors**
+- **BME688** (Environmental Sensor)
+  - Mouser: [https://ro.mouser.com/ProductDetail/Bosch-Sensortec/Evaluation-Kit-Board-BME688?qs=QNEnbhJQKvZD%2Fs%2Ff0WWu0Q%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/783/Bosch_sensortec_bme688_development_kit_flyer-3000177.pdf]()
+
+- **DS3231SN#** (RTC Module)
+  - Mouser: [https://ro.mouser.com/ProductDetail/Analog-Devices-Maxim-Integrated/DS3231SN?qs=1eQvB6Dk1vhUlr8%2FOrV0Fw%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/609/DS3231-3421123.pdf]()
+
+#### **Power Management**
+- **MAX17048G+T10** (Battery Fuel Gauge)
+  - Mouser: [https://eu.mouser.com/ProductDetail/Analog-Devices-Maxim-Integrated/MAX17048G+T10?qs=D7PJwyCwLAoGnnn8jEPRBQ%3D%3D&srsltid=AfmBOoq0Uf9CVLtvuYCdL-b56-Pbwotx2XvoNmNfB9vf0O63iEPsWucA]()
+  - Datasheet: [https://eu.mouser.com/datasheet/2/609/MAX17048_MAX17049-3469099.pdf]()  
+
+- **MCP73831** (Li-Po Battery Charger)
+  - Mouser: [https://ro.mouser.com/ProductDetail/Microchip-Technology/MCP73831-2DCI-MC?qs=hH%252BOa0VZEiBQ%2FrptDRXKdg%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/268/MCP73831_Family_Data_Sheet_DS20001984H-3441711.pdf]()
+
+- **XC6220A331MR-G** (LDO Voltage Regulator 3.3V)
+  - Mouser: [https://ro.mouser.com/ProductDetail/Torex-Semiconductor/XC6220A331MR-G?qs=AsjdqWjXhJ8ZSWznL1J0gg%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/760/xc6220-3371556.pdf]()
+
+#### **Connectors & Protection**
+- **USBLC6-2SC6Y** (USB ESD Protection)
+  - Mouser: [https://eu.mouser.com/ProductDetail/STMicroelectronics/USBLC6-2SC6Y?qs=gNDSiZmRJS%2FOgDexvXkdow%3D%3D&srsltid=AfmBOooGFMy49XJWMdHSBGK6U_FDXdeHD6KsINSiWZt-au9axwzb1pgh]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/389/usblc6_2sc6y-1852505.pdf]()
+
+- **FH34SRJ-24S-0.5SH** (24-pin Connector)
+  - Mouser: [https://ro.mouser.com/ProductDetail/Hirose-Connector/FH34SRJ-24S-0.5SH50?qs=iyLo5FA4poC8fzWlavnA7A%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/185/FH34SRJ_24S_0_5SH_50__CL0580_1255_6_50_2DDrawing_0-1615030.pdf]()
+
+#### **Passive Components**
+- **SD0805S020S1R0** (68μH Inductor)
+  - Mouser: [https://ro.mouser.com/ProductDetail/KYOCERA-AVX/SD0805S020S1R0?qs=jCA%252BPfw4LHbpkAoSnwrdjw%3D%3D]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/40/schottky-3165252.pdf]()
+
+- **MBR0530** (Schottky Diode)
+  - Mouser: [https://ro.mouser.com/ProductDetail/onsemi-Fairchild/MBR0530?qs=VOMQJJE%252BBNniwJKcE3T43Q%3D%3D&srsltid=AfmBOorGETz4X7561cljdZB-BtAN4aC8w0OtRadqMgVwKqojAjDrxsqV]()
+  - Datasheet: [https://ro.mouser.com/datasheet/2/308/MBR0530_D-1810985.pdf]()
