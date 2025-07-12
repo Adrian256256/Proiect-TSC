@@ -1,5 +1,5 @@
-# TSC
-## Project: OpenBook  
+# E-Book Reader
+## Project name: OpenBook  
 **Author:** Teodor-Adrian Harea (333CA)  
 
 ![schema_bloc](https://github.com/user-attachments/assets/77c92a13-ef4c-4942-9d59-9a1516e06ebd)
